@@ -102,33 +102,81 @@
     <div id="spotlight"></div>
 
     <!-- Hero Section -->
-    <header class="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0 z-0 opacity-20 pointer-events-none">
+    <header class="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-20">
+        <!-- Background Effects -->
+        <div class="absolute inset-0 z-0 bg-navy">
+            <!-- Grid Pattern -->
             <div
-                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gold/10 rounded-full blur-[100px] animate-pulse">
+                class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none">
+            </div>
+            <!-- Glow Orbs -->
+            <div
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-gold/10 rounded-full blur-[100px] animate-pulse pointer-events-none">
+            </div>
+            <div
+                class="absolute top-[30%] left-[30%] w-[200px] h-[200px] bg-blue-500/5 rounded-full blur-[80px] pointer-events-none">
             </div>
         </div>
 
-        <div class="section-container relative z-10 text-center reveal">
-            <!-- Official Logo -->
-            <img src="/logo.png" alt="PrimeVerse Logo" class="h-20 md:h-28 mx-auto mb-12 drop-shadow-[0_0_20px_rgba(212,175,55,0.2)]">
-            
-            <span
-                class="inline-block px-4 py-1.5 rounded-sm border border-gold/30 bg-gold/5 text-gold text-xs font-bold uppercase tracking-[0.3em] mb-6">
-                Exclusive • 1:1 Session
-            </span>
-            <h1 class="text-4xl md:text-6xl font-black leading-[1.1] mb-8 tracking-tighter font-heading text-gradient">
-                YOU'RE NOT LOSING BECAUSE OF THE MARKET... <br />
-                <span class="text-gold italic">YOU'RE LOSING</span> BECAUSE YOU DON'T HAVE A SYSTEM
-            </h1>
-            <p
-                class="text-lg md:text-xl text-gray-500 max-w-3xl mx-auto mb-12 font-medium leading-relaxed tracking-tight">
-                Identify mistakes, fix your approach, and build a structured trading system.
-            </p>
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
-                <a href="#diagnosis" class="glow-btn px-10 py-5 text-lg tracking-tighter uppercase font-black">
-                    START CLARITY SESSION
-                </a>
+        <div class="section-container relative z-10 w-full max-w-4xl pt-10">
+            <!-- Free-floating Hero Content -->
+            <div class="relative w-full reveal">
+
+                <div class="text-center">
+                    <!-- Official Logo -->
+                    <img src="/logo.png" alt="PrimeVerse Logo"
+                        class="h-12 md:h-16 mx-auto mb-8 drop-shadow-[0_0_15px_rgba(212,175,55,0.3)] hover:scale-105 transition-transform duration-500">
+
+                    <!-- Eyebrow Badge -->
+                    <div class="inline-block px-5 py-2 border border-gold/30 mb-8">
+                        <span
+                            class="text-[#B28A25] text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] opacity-90">
+                            Still Confused in Trading?
+                        </span>
+                    </div>
+
+                    <!-- Main Headline -->
+                    <h1
+                        class="text-2xl md:text-4xl lg:text-5xl font-black leading-[1.1] mb-8 tracking-tight font-heading text-white">
+                        YOU’RE NOT LOSING BECAUSE OF<br />
+                        THE MARKET — <br />
+                        <span class="text-gold italic drop-shadow-[0_0_15px_rgba(212,175,55,0.3)]">YOU’RE LOSING</span>
+                        BECAUSE YOU <br class="hidden md:block" />
+                        DON’T HAVE A <span
+                            class="text-gold italic drop-shadow-[0_0_15px_rgba(212,175,55,0.3)]">SYSTEM</span>
+                    </h1>
+
+                    <!-- Subheadline -->
+                    <p
+                        class="text-xs md:text-sm text-gray-400 max-w-2xl mx-auto mb-10 font-medium leading-relaxed tracking-wide">
+                        This session will clearly identify your mistakes and guide you with a structured, disciplined
+                        trading <br class="hidden md:block" />
+                        approach — <span class="text-white font-bold">not signals, but real execution-based
+                            clarity.</span>
+                    </p>
+
+                    <!-- CTA & Scarcity -->
+                    <div class="flex flex-col items-center gap-8">
+
+                        <!-- Scarcity Elements (Above Button in Reference Image) -->
+                        <div
+                            class="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-[8px] md:text-[9px] font-bold uppercase tracking-widest text-[#B28A25]">
+                            <span class="flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 bg-red-600 rounded-full"></span>
+                                Not for everyone. Only for serious learners.
+                            </span>
+                            <span class="hidden md:block opacity-30 text-white">|</span>
+                            <span>Limited consultation slots available each week.</span>
+                        </div>
+
+                        <!-- CTA Button -->
+                        <a href="#diagnosis"
+                            class="bg-[#DAB33B] text-black font-black text-xs md:text-sm uppercase tracking-[0.05em] px-8 py-4 rounded-sm hover:bg-[#c9a334] transition-colors shadow-lg active:scale-95 duration-200">
+                            👉 Apply for 1:1 Clarity Session
+                        </a>
+
+                    </div>
+                </div>
             </div>
         </div>
     </header>
@@ -274,40 +322,60 @@
 
                 <!-- Right Form Card (Premium Dark UI) -->
                 <div class="lg:col-span-3 reveal">
-                    <div class="glass rounded-sm pt-2 overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.6)] relative group">
+                    <div
+                        class="glass rounded-sm pt-2 overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.6)] relative group">
                         <!-- Animated Border Glow -->
-                        <div class="absolute inset-0 border border-gold/10 group-hover:border-gold/30 transition-colors duration-700 pointer-events-none"></div>
-                        
+                        <div
+                            class="absolute inset-0 border border-gold/10 group-hover:border-gold/30 transition-colors duration-700 pointer-events-none">
+                        </div>
+
                         <!-- Progress Header (Dark Theme) -->
                         <div class="flex border-b border-white/5 bg-navy/60">
-                            <div class="flex-1 py-4 text-center border-b-2 border-gold text-[10px] font-black uppercase tracking-tighter text-white bg-gold/5">1. Basics</div>
-                            <div class="flex-1 py-4 text-center border-b-2 border-white/10 text-[10px] font-black uppercase tracking-tighter text-gray-600">2. Profile</div>
-                            <div class="flex-1 py-4 text-center border-b-2 border-white/10 text-[10px] font-black uppercase tracking-tighter text-gray-600">3. Commitment</div>
+                            <div
+                                class="flex-1 py-4 text-center border-b-2 border-gold text-[10px] font-black uppercase tracking-tighter text-white bg-gold/5">
+                                1. Basics</div>
+                            <div
+                                class="flex-1 py-4 text-center border-b-2 border-white/10 text-[10px] font-black uppercase tracking-tighter text-gray-600">
+                                2. Profile</div>
+                            <div
+                                class="flex-1 py-4 text-center border-b-2 border-white/10 text-[10px] font-black uppercase tracking-tighter text-gray-600">
+                                3. Commitment</div>
                         </div>
 
                         <div class="p-8 md:p-12">
                             <form id="consultationForm" class="space-y-12">
-                                
+
                                 <!-- Part 1: Identity -->
                                 <div class="space-y-10">
                                     <div class="grid md:grid-cols-2 gap-10">
                                         <div class="relative group">
-                                            <input type="text" required class="peer w-full bg-transparent border-b-2 border-white/10 py-3 outline-none focus:border-gold transition-all text-sm font-medium text-white placeholder-transparent">
-                                            <label class="absolute left-0 top-0 text-gray-500 text-xs font-bold uppercase tracking-widest transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-sm peer-focus:-top-6 peer-focus:text-gold peer-focus:text-[10px]">Full Name</label>
+                                            <input type="text" required
+                                                class="peer w-full bg-transparent border-b-2 border-white/10 py-3 outline-none focus:border-gold transition-all text-sm font-medium text-white placeholder-transparent">
+                                            <label
+                                                class="absolute left-0 top-0 text-gray-500 text-xs font-bold uppercase tracking-widest transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-sm peer-focus:-top-6 peer-focus:text-gold peer-focus:text-[10px]">Full
+                                                Name</label>
                                         </div>
                                         <div class="relative group">
-                                            <input type="tel" required class="peer w-full bg-transparent border-b-2 border-white/10 py-3 outline-none focus:border-gold transition-all text-sm font-medium text-white placeholder-transparent">
-                                            <label class="absolute left-0 top-0 text-gray-500 text-xs font-bold uppercase tracking-widest transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-sm peer-focus:-top-6 peer-focus:text-gold peer-focus:text-[10px]">Whatsapp Number</label>
+                                            <input type="tel" required
+                                                class="peer w-full bg-transparent border-b-2 border-white/10 py-3 outline-none focus:border-gold transition-all text-sm font-medium text-white placeholder-transparent">
+                                            <label
+                                                class="absolute left-0 top-0 text-gray-500 text-xs font-bold uppercase tracking-widest transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-sm peer-focus:-top-6 peer-focus:text-gold peer-focus:text-[10px]">Whatsapp
+                                                Number</label>
                                         </div>
                                     </div>
                                     <div class="grid md:grid-cols-2 gap-10">
                                         <div class="relative group">
-                                            <input type="text" required class="peer w-full bg-transparent border-b-2 border-white/10 py-3 outline-none focus:border-gold transition-all text-sm font-medium text-white placeholder-transparent">
-                                            <label class="absolute left-0 top-0 text-gray-500 text-xs font-bold uppercase tracking-widest transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-sm peer-focus:-top-6 peer-focus:text-gold peer-focus:text-[10px]">City / State</label>
+                                            <input type="text" required
+                                                class="peer w-full bg-transparent border-b-2 border-white/10 py-3 outline-none focus:border-gold transition-all text-sm font-medium text-white placeholder-transparent">
+                                            <label
+                                                class="absolute left-0 top-0 text-gray-500 text-xs font-bold uppercase tracking-widest transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-sm peer-focus:-top-6 peer-focus:text-gold peer-focus:text-[10px]">City
+                                                / State</label>
                                         </div>
                                         <div class="relative group">
-                                            <input type="number" required class="peer w-full bg-transparent border-b-2 border-white/10 py-3 outline-none focus:border-gold transition-all text-sm font-medium text-white placeholder-transparent">
-                                            <label class="absolute left-0 top-0 text-gray-500 text-xs font-bold uppercase tracking-widest transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-sm peer-focus:-top-6 peer-focus:text-gold peer-focus:text-[10px]">Age</label>
+                                            <input type="number" required
+                                                class="peer w-full bg-transparent border-b-2 border-white/10 py-3 outline-none focus:border-gold transition-all text-sm font-medium text-white placeholder-transparent">
+                                            <label
+                                                class="absolute left-0 top-0 text-gray-500 text-xs font-bold uppercase tracking-widest transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-sm peer-focus:-top-6 peer-focus:text-gold peer-focus:text-[10px]">Age</label>
                                         </div>
                                     </div>
                                 </div>
@@ -315,7 +383,9 @@
                                 <!-- Part 2: Situation (Interest Factor: Custom Select Chips) -->
                                 <div class="space-y-10">
                                     <div class="space-y-6">
-                                        <label class="text-[10px] font-black uppercase tracking-[0.2em] text-gold/60">Trading Experience</label>
+                                        <label
+                                            class="text-[10px] font-black uppercase tracking-[0.2em] text-gold/60">Trading
+                                            Experience</label>
                                         <div class="grid grid-cols-2 gap-4">
                                             <label class="experience-chip">
                                                 <input type="radio" name="exp" class="hidden">
@@ -337,7 +407,9 @@
                                     </div>
 
                                     <div class="space-y-6">
-                                        <label class="text-[10px] font-black uppercase tracking-[0.2em] text-gold/60 leading-relaxed">Current Biggest Struggle</label>
+                                        <label
+                                            class="text-[10px] font-black uppercase tracking-[0.2em] text-gold/60 leading-relaxed">Current
+                                            Biggest Struggle</label>
                                         <div class="space-y-4">
                                             <label class="problem-item">
                                                 <input type="checkbox" class="hidden">
@@ -367,7 +439,9 @@
                                 <!-- Part 3: Commitment -->
                                 <div class="space-y-10">
                                     <div class="space-y-6">
-                                        <label class="text-[10px] font-black uppercase tracking-[0.2em] text-gold/60">Ready to invest in learning?</label>
+                                        <label
+                                            class="text-[10px] font-black uppercase tracking-[0.2em] text-gold/60">Ready
+                                            to invest in learning?</label>
                                         <div class="flex space-x-4">
                                             <label class="flex-1 invest-chip">
                                                 <input type="radio" name="invest" class="hidden">
@@ -385,12 +459,17 @@
                                     </div>
 
                                     <div class="space-y-6">
-                                        <label class="text-[10px] font-black uppercase tracking-[0.2em] text-gold/60">Why now?</label>
-                                        <textarea placeholder="Tell us why you want to learn seriously now..." class="w-full bg-white/5 border border-white/10 rounded-sm p-5 text-sm outline-none focus:border-gold focus:bg-white/10 transition-all h-32 text-white"></textarea>
+                                        <label
+                                            class="text-[10px] font-black uppercase tracking-[0.2em] text-gold/60">Why
+                                            now?</label>
+                                        <textarea placeholder="Tell us why you want to learn seriously now..."
+                                            class="w-full bg-white/5 border border-white/10 rounded-sm p-5 text-sm outline-none focus:border-gold focus:bg-white/10 transition-all h-32 text-white"></textarea>
                                     </div>
 
                                     <div class="space-y-6">
-                                        <label class="text-[10px] font-black uppercase tracking-[0.2em] text-gold/60">Available Call Time</label>
+                                        <label
+                                            class="text-[10px] font-black uppercase tracking-[0.2em] text-gold/60">Available
+                                            Call Time</label>
                                         <div class="grid grid-cols-3 gap-4">
                                             <label class="time-chip">
                                                 <input type="radio" name="time" class="hidden">
@@ -408,7 +487,8 @@
                                     </div>
                                 </div>
 
-                                <button type="submit" class="glow-btn w-full py-6 text-xl tracking-[0.3em] font-black uppercase">
+                                <button type="submit"
+                                    class="glow-btn w-full py-6 text-xl tracking-[0.3em] font-black uppercase">
                                     SUBMIT APPLICATION
                                 </button>
                             </form>
