@@ -472,21 +472,18 @@
                                             <label class="problem-item">
                                                 <input type="checkbox" class="hidden">
                                                 <div class="problem-box">
-                                                    <span class="icon">○</span>
                                                     <span class="text">Overtrading / Emotional Trades</span>
                                                 </div>
                                             </label>
                                             <label class="problem-item">
                                                 <input type="checkbox" class="hidden">
                                                 <div class="problem-box">
-                                                    <span class="icon">○</span>
                                                     <span class="text">No Clear System / Strategy</span>
                                                 </div>
                                             </label>
                                             <label class="problem-item">
                                                 <input type="checkbox" class="hidden">
                                                 <div class="problem-box">
-                                                    <span class="icon">○</span>
                                                     <span class="text">Following Signals (Blind Trading)</span>
                                                 </div>
                                             </label>
@@ -559,27 +556,16 @@
 
     <!-- Custom Form Styles -->
     <style>
+        /* Hidden inputs */
         .experience-chip input:checked+.chip-bubble,
         .invest-chip input:checked+.chip-bubble,
-        .time-chip input:checked+.chip-bubble {
-            @apply bg-gold text-navy border-gold;
-        }
-
-        .chip-bubble {
-            @apply border border-white/10 p-4 text-center text-xs font-bold rounded-sm transition-all cursor-pointer hover:border-gold/50 text-gray-400 bg-white/5;
-        }
-
+        .time-chip input:checked+.chip-bubble,
         .problem-item input:checked+.problem-box {
-            @apply bg-gold/10 border-gold text-gold font-bold;
+            @apply text-white font-bold opacity-100;
         }
 
-        .problem-item input:checked+.problem-box .icon {
-            @apply text-gold;
-            content: "●";
-        }
-
-        .problem-box {
-            @apply flex items-center space-x-4 border border-white/10 p-4 rounded-sm transition-all cursor-pointer text-gray-500 text-sm bg-white/5;
+        .chip-bubble, .problem-box {
+            @apply text-base font-normal tracking-wide text-gray-300 opacity-80 cursor-pointer transition-all duration-300 hover:text-white hover:opacity-100 flex items-center justify-start h-full;
         }
     </style>
 
