@@ -25,7 +25,7 @@
                         navy: '#050A18',
                         dark: '#0B1426',
                         gold: '#D4AF37',
-                        primary: '#D4AF37', /* Mapping gold to primary for convenience */
+                        primary: '#D4AF37',
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -94,6 +94,23 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Form Custom Styles */
+        .chip-bubble, .problem-box {
+            @apply text-base font-normal tracking-wide text-gray-300 opacity-80 cursor-pointer transition-all duration-300 hover:text-white hover:opacity-100 flex items-center justify-center h-full;
+        }
+        .experience-chip input:checked + .chip-bubble,
+        .invest-chip input:checked + .chip-bubble,
+        .time-chip input:checked + .chip-bubble,
+        .problem-item input:checked + .problem-box {
+            @apply bg-gold/20 border-gold text-gold font-bold opacity-100 shadow-md;
+        }
+        .chip-bubble {
+            @apply border border-white/20 rounded-full px-4 py-2 text-center;
+        }
+        .problem-box {
+            @apply border border-white/20 rounded-md px-4 py-3 text-left;
+        }
     </style>
 </head>
 
@@ -102,14 +119,12 @@
     <div id="spotlight"></div>
 
     <!-- Hero Section -->
-    <header class="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-20">
+    <header class="relative flex items-center justify-center overflow-hidden pt-24 pb-12">
         <!-- Background Effects -->
         <div class="absolute inset-0 z-0 bg-navy">
-            <!-- Grid Pattern -->
             <div
                 class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none">
             </div>
-            <!-- Glow Orbs -->
             <div
                 class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-gold/10 rounded-full blur-[100px] animate-pulse pointer-events-none">
             </div>
@@ -118,26 +133,19 @@
             </div>
         </div>
 
-        <div class="section-container relative z-10 w-full max-w-4xl pt-10">
-            <!-- Free-floating Hero Content -->
+        <div class="section-container relative z-10 w-full max-w-4xl pt-4">
             <div class="relative w-full reveal">
-
                 <div class="text-center">
-                    <!-- Official Logo -->
                     <img src="/logo.png" alt="PrimeVerse Logo"
-                        class="h-12 md:h-16 mx-auto mb-8 drop-shadow-[0_0_15px_rgba(212,175,55,0.3)] hover:scale-105 transition-transform duration-500">
-
-                    <!-- Eyebrow Badge -->
-                    <div class="inline-block px-5 py-2 border border-gold/30 mb-8">
+                        class="h-12 md:h-16 mx-auto mb-6 drop-shadow-[0_0_15px_rgba(212,175,55,0.3)] hover:scale-105 transition-transform duration-500">
+                    <div class="inline-block px-5 py-2 border border-gold/30 mb-6">
                         <span
                             class="text-[#B28A25] text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] opacity-90">
                             Still Confused in Trading?
                         </span>
                     </div>
-
-                    <!-- Main Headline -->
                     <h1
-                        class="text-2xl md:text-4xl lg:text-5xl font-black leading-[1.1] mb-8 tracking-tight font-heading text-white">
+                        class="text-2xl md:text-4xl lg:text-5xl font-black leading-[1.1] mb-6 tracking-tight font-heading text-white">
                         YOU’RE NOT LOSING BECAUSE OF<br />
                         THE MARKET — <br />
                         <span class="text-gold italic drop-shadow-[0_0_15px_rgba(212,175,55,0.3)]">YOU’RE LOSING</span>
@@ -145,20 +153,14 @@
                         DON’T HAVE A <span
                             class="text-gold italic drop-shadow-[0_0_15px_rgba(212,175,55,0.3)]">SYSTEM</span>
                     </h1>
-
-                    <!-- Subheadline -->
                     <p
-                        class="text-xs md:text-sm text-gray-400 max-w-2xl mx-auto mb-10 font-medium leading-relaxed tracking-wide">
+                        class="text-xs md:text-sm text-gray-400 max-w-2xl mx-auto mb-6 font-medium leading-relaxed tracking-wide">
                         This session will clearly identify your mistakes and guide you with a structured, disciplined
                         trading <br class="hidden md:block" />
                         approach — <span class="text-white font-bold">not signals, but real execution-based
                             clarity.</span>
                     </p>
-
-                    <!-- CTA & Scarcity -->
-                    <div class="flex flex-col items-center gap-8">
-
-                        <!-- Scarcity Elements (Above Button in Reference Image) -->
+                    <div class="flex flex-col items-center gap-5">
                         <div
                             class="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-[8px] md:text-[9px] font-bold uppercase tracking-widest text-[#B28A25]">
                             <span class="flex items-center gap-2">
@@ -168,13 +170,10 @@
                             <span class="hidden md:block opacity-30 text-white">|</span>
                             <span>Limited consultation slots available each week.</span>
                         </div>
-
-                        <!-- CTA Button -->
-                        <a href="#diagnosis"
+                        <a href="#application-form"
                             class="bg-[#DAB33B] text-black font-black text-xs md:text-sm uppercase tracking-[0.05em] px-8 py-4 rounded-sm hover:bg-[#c9a334] transition-colors shadow-lg active:scale-95 duration-200">
                             👉 Apply for 1:1 Clarity Session
                         </a>
-
                     </div>
                 </div>
             </div>
@@ -182,24 +181,18 @@
     </header>
 
     <!-- Autoplay Video Presentation Section -->
-    <section class="relative z-20 pb-20 px-6 -mt-10 md:-mt-16 bg-navy">
+    <section class="relative z-20 pb-20 px-6 mt-4 md:mt-8 bg-navy">
         <div class="max-w-4xl mx-auto reveal relative">
-
-            <!-- Glow behind video -->
             <div
                 class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-gold/10 rounded-full blur-[100px] z-0 pointer-events-none">
             </div>
-
             <div
                 class="relative z-10 w-full rounded-xl md:rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)] border border-white/10 bg-black">
-                <!-- 16:9 Aspect Ratio Container -->
-                <div class="relative pt-[56.25%] w-full">
-                    <iframe class="absolute top-0 left-0 w-full h-full"
-                        src="https://www.youtube.com/embed/cH1-w_fzW6o?autoplay=1&mute=1&loop=1&playlist=cH1-w_fzW6o&controls=0&modestbranding=1&rel=0"
-                        title="Trading System Overview" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen>
-                    </iframe>
+                <div class="w-full">
+                    <video class="w-full h-auto object-cover" autoplay loop muted playsinline>
+                        <source src="intro.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
             </div>
         </div>
@@ -209,343 +202,169 @@
     <section class="bg-dark/30 border-y border-white/5 py-10 md:py-16" id="symptoms">
         <div class="max-w-6xl mx-auto px-6">
             <div class="grid md:grid-cols-2 gap-10 md:gap-16">
-                <!-- Value Section -->
                 <div class="reveal">
                     <h2
                         class="text-xl md:text-2xl font-bold mb-6 font-heading text-white uppercase tracking-tight border-l-4 border-gold pl-6">
                         What You Will Gain <br />From This Session</h2>
                     <ul class="space-y-4 text-white text-sm md:text-base mb-8">
-                        <li class="flex items-center space-x-3">
-                            <span class="text-green-500 font-bold text-lg">✔</span>
-                            <span>Identify your <span class="text-gold font-bold">exact trading mistakes</span></span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <span class="text-green-500 font-bold text-lg">✔</span>
-                            <span>Understand why you are <span class="text-gold font-bold">not consistent</span></span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <span class="text-green-500 font-bold text-lg">✔</span>
-                            <span>Get a <span class="text-gold font-bold">clear trading roadmap</span></span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <span class="text-green-500 font-bold text-lg">✔</span>
-                            <span>Learn how to build a <span class="text-gold font-bold">structured system</span></span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <span class="text-green-500 font-bold text-lg">✔</span>
-                            <span>Improve <span class="text-gold font-bold">risk management & discipline</span></span>
-                        </li>
+                        <li class="flex items-center space-x-3"><span class="text-green-500 font-bold text-lg">✔</span><span>Identify your <span class="text-gold font-bold">exact trading mistakes</span></span></li>
+                        <li class="flex items-center space-x-3"><span class="text-green-500 font-bold text-lg">✔</span><span>Understand why you are <span class="text-gold font-bold">not consistent</span></span></li>
+                        <li class="flex items-center space-x-3"><span class="text-green-500 font-bold text-lg">✔</span><span>Get a <span class="text-gold font-bold">clear trading roadmap</span></span></li>
+                        <li class="flex items-center space-x-3"><span class="text-green-500 font-bold text-lg">✔</span><span>Learn how to build a <span class="text-gold font-bold">structured system</span></span></li>
+                        <li class="flex items-center space-x-3"><span class="text-green-500 font-bold text-lg">✔</span><span>Improve <span class="text-gold font-bold">risk management & discipline</span></span></li>
                     </ul>
-
-                    <div class="italic font-medium text-lg text-gray-300 flex items-start space-x-3 mt-4">
-                        <span class="text-2xl leading-none pt-0.5">👉</span>
-                        <span>This is not motivation. This is <span
-                                class="text-gold font-bold text-[19px]">clarity</span>.</span>
-                    </div>
+                    <div class="italic font-medium text-lg text-gray-300 flex items-start space-x-3 mt-4"><span class="text-2xl leading-none pt-0.5">👉</span><span>This is not motivation. This is <span class="text-gold font-bold text-[19px]">clarity</span>.</span></div>
                 </div>
-
-                <!-- Filter Section -->
                 <div class="reveal">
-                    <h2
-                        class="text-xl md:text-2xl font-bold mb-6 font-heading text-white uppercase tracking-tight border-l-4 border-gold pl-6">
-                        This Session <br />Is For You If…</h2>
+                    <h2 class="text-xl md:text-2xl font-bold mb-6 font-heading text-white uppercase tracking-tight border-l-4 border-gold pl-6">This Session <br />Is For You If…</h2>
                     <ul class="space-y-4 text-white text-sm md:text-base mb-6">
-                        <li class="flex items-center space-x-3">
-                            <span class="text-green-500 font-bold text-lg">✔</span>
-                            <span>You are a <span class="text-gold font-bold">beginner</span> struggling with
-                                clarity</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <span class="text-green-500 font-bold text-lg">✔</span>
-                            <span>You follow <span class="text-gold font-bold">signals</span> without
-                                understanding</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <span class="text-green-500 font-bold text-lg">✔</span>
-                            <span>You don't have a <span class="text-gold font-bold">structured trading
-                                    system</span></span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <span class="text-green-500 font-bold text-lg">✔</span>
-                            <span>You are <span class="text-gold font-bold">unable to stay consistent</span></span>
-                        </li>
+                        <li class="flex items-center space-x-3"><span class="text-green-500 font-bold text-lg">✔</span><span>You are a <span class="text-gold font-bold">beginner</span> struggling with clarity</span></li>
+                        <li class="flex items-center space-x-3"><span class="text-green-500 font-bold text-lg">✔</span><span>You follow <span class="text-gold font-bold">signals</span> without understanding</span></li>
+                        <li class="flex items-center space-x-3"><span class="text-green-500 font-bold text-lg">✔</span><span>You don't have a <span class="text-gold font-bold">structured trading system</span></span></li>
+                        <li class="flex items-center space-x-3"><span class="text-green-500 font-bold text-lg">✔</span><span>You are <span class="text-gold font-bold">unable to stay consistent</span></span></li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
-    </section>
 
-    <!-- Founder Section (Alternating Side-by-Side) -->
+    <!-- Founder Section (Mirrored: Image Left, Content Right) -->
     <section class="bg-dark/20 py-20 border-b border-white/5" id="about">
         <div class="section-container grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-
-            <!-- Text Content (Left Side Desktop, Bottom Mobile) -->
-            <div class="reveal order-2 md:order-1">
-                <span class="text-[#EF4444] font-black uppercase tracking-[0.15em] text-sm md:text-base mb-2 block">
-                    THE MISSION
-                </span>
-                <h2
-                    class="text-3xl md:text-4xl lg:text-[40px] font-black mb-8 leading-tight font-heading text-white uppercase">
-                    Why I Created This <br />
-                    <span class="text-white">1:1 Clarity Session</span>
-                </h2>
-
-                <div class="space-y-5 text-gray-400 leading-relaxed text-sm md:text-base font-medium">
-                    <p>Too many beginner traders are stuck in confusion. They follow random signals, enter without a
-                        system, and keep repeating the same mistakes.</p>
-
-                    <p>I created this session to help serious learners understand what is actually stopping their growth
-                        in trading.</p>
-
-                    <p>This clarity session can help you avoid years of confusion and wrong direction by identifying
-                        exactly what is holding you back and guiding you toward a structured approach.</p>
-
-                    <p class="text-white/90">This is not about hype, shortcuts, or quick profits. This is about clarity,
-                        discipline, and building a structured trading approach.</p>
-
-                    <p>If you are serious about learning trading properly, this session will help you see what needs to
-                        change.</p>
-                </div>
-
-                <div class="mt-8 border-l-2 border-gold pl-4 py-2">
-                    <span class="text-gold font-bold uppercase tracking-widest text-xs block mb-1">
-                        — Ganesh Kumar
-                    </span>
-                    <span class="text-gray-500 font-bold uppercase tracking-widest text-[10px]">
-                        Founder of PrimeVerse
-                    </span>
-                </div>
-            </div>
-
-            <!-- Image Content (Right Side Desktop, Top Mobile) -->
-            <div class="relative reveal order-1 md:order-2">
+            <!-- Image Content: LEFT side with MIRROR effect -->
+            <div class="relative reveal order-1">
                 <div class="absolute inset-0 bg-gold/10 blur-3xl rounded-full -z-10"></div>
+                <!-- Mirror effect using scaleX(-1) -->
                 <img src="/fphoto.png" alt="Ganesh Kumar"
-                    class="rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.4)] grayscale hover:grayscale-0 transition-all duration-700 w-full object-cover border border-white/5">
+                    class="rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.4)] grayscale hover:grayscale-0 transition-all duration-700 w-full object-cover border border-white/5 transform scale-x-[-1]">
             </div>
-
+            <!-- Text Content: RIGHT side -->
+            <div class="reveal order-2">
+                <span class="text-[#EF4444] font-black uppercase tracking-[0.15em] text-sm md:text-base mb-2 block">THE MISSION</span>
+                <h2 class="text-3xl md:text-4xl lg:text-[40px] font-black mb-8 leading-tight font-heading text-white uppercase">Why I Created This <br /><span class="text-white">1:1 Clarity Session</span></h2>
+                <div class="space-y-5 text-gray-400 leading-relaxed text-sm md:text-base font-medium">
+                    <p>Too many beginner traders are stuck in confusion. They follow random signals, enter without a system, and keep repeating the same mistakes.</p>
+                    <p>I created this session to help serious learners understand what is actually stopping their growth in trading.</p>
+                    <p>This clarity session can help you avoid years of confusion and wrong direction by identifying exactly what is holding you back and guiding you toward a structured approach.</p>
+                    <p class="text-white/90">This is not about hype, shortcuts, or quick profits. This is about clarity, discipline, and building a structured trading approach.</p>
+                    <p>If you are serious about learning trading properly, this session will help you see what needs to change.</p>
+                </div>
+                <div class="mt-8 border-l-2 border-gold pl-4 py-2">
+                    <span class="text-gold font-bold uppercase tracking-widest text-xs block mb-1">— Ganesh Kumar</span>
+                    <span class="text-gray-500 font-bold uppercase tracking-widest text-[10px]">Founder of PrimeVerse</span>
+                </div>
+            </div>
         </div>
     </section>
-    <!-- Application Form Section -->
-    <section class="bg-dark/60 py-24 scroll-mt-20" id="diagnosis">
+
+    <!-- Single Page Fully Fillable Application Form Section -->
+    <section class="bg-dark/60 py-24 scroll-mt-20" id="application-form">
         <div class="section-container">
             <div class="grid lg:grid-cols-5 gap-16 items-start">
-
-                <!-- Left Context Panel (Kept Clean) -->
+                <!-- Left Context Panel -->
                 <div class="lg:col-span-2 reveal">
-                    <div
-                        class="inline-flex items-center space-x-2 px-3 py-1 rounded-sm border border-gold/30 bg-gold/5 text-gold text-[10px] uppercase tracking-widest mb-10">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-sm border border-gold/30 bg-gold/5 text-gold text-[10px] uppercase tracking-widest mb-10">
                         <span>PrimeVerse Trading Consultation</span>
                         <span class="opacity-30">•</span>
                         <span>Official Application</span>
                     </div>
-
-                    <h2 class="text-4xl font-black mb-6 font-heading text-white">Your Path to <br /><span
-                            class="text-gold">Trading Clarity</span></h2>
-
+                    <h2 class="text-4xl font-black mb-6 font-heading text-white">Your Path to <br /><span class="text-gold">Trading Clarity</span></h2>
                     <div class="space-y-8 text-gray-400 leading-relaxed mb-12">
-                        <p>This isn't a "sales discovery" call. This is a deep-dive into your strategy, discipline, and
-                            risk management.</p>
-                        <p>If you're tired of guessing and ready for a structured system, complete the form to the
-                            right.</p>
+                        <p>This isn't a "sales discovery" call. This is a deep-dive into your strategy, discipline, and risk management.</p>
+                        <p>If you're tired of guessing and ready for a structured system, complete the form below.</p>
                     </div>
-
                     <div class="space-y-4">
                         <div class="flex items-center space-x-4 bg-navy/40 p-4 border border-white/5 rounded-sm">
-                            <div
-                                class="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center text-gold font-bold text-sm">
-                                30</div>
-                            <div>
-                                <p
-                                    class="text-[10px] text-gray-500 uppercase font-black tracking-widest leading-none mb-1">
-                                    Duration</p>
-                                <p class="text-sm font-bold text-white uppercase tracking-tight">Minute Zoom Session</p>
-                            </div>
+                            <div class="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center text-gold font-bold text-sm">30</div>
+                            <div><p class="text-[10px] text-gray-500 uppercase font-black tracking-widest leading-none mb-1">Duration</p><p class="text-sm font-bold text-white uppercase tracking-tight">Minute Zoom Session</p></div>
                         </div>
                         <div class="flex items-center space-x-4 bg-navy/40 p-4 border border-white/5 rounded-sm">
-                            <div
-                                class="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center text-gold font-bold text-sm">
-                                GK</div>
-                            <div>
-                                <p
-                                    class="text-[10px] text-gray-500 uppercase font-black tracking-widest leading-none mb-1">
-                                    Expert</p>
-                                <p class="text-sm font-bold text-white uppercase tracking-tight">Ganesh Kumar (Founder)
-                                </p>
-                            </div>
+                            <div class="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center text-gold font-bold text-sm">GK</div>
+                            <div><p class="text-[10px] text-gray-500 uppercase font-black tracking-widest leading-none mb-1">Expert</p><p class="text-sm font-bold text-white uppercase tracking-tight">Ganesh Kumar (Founder)</p></div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Right Form Card (Premium Dark UI) -->
+                <!-- Right Form Card: Fully Fillable Single Page Form -->
                 <div class="lg:col-span-3 reveal">
-                    <div
-                        class="glass rounded-sm pt-2 overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.6)] relative group">
-                        <!-- Animated Border Glow -->
-                        <div
-                            class="absolute inset-0 border border-gold/10 group-hover:border-gold/30 transition-colors duration-700 pointer-events-none">
-                        </div>
-
-                        <!-- Progress Header (Dark Theme) -->
-                        <div class="flex border-b border-white/5 bg-navy/60">
-                            <div
-                                class="flex-1 py-4 text-center border-b-2 border-gold text-[10px] font-black uppercase tracking-tighter text-white bg-gold/5">
-                                1. Basics</div>
-                            <div
-                                class="flex-1 py-4 text-center border-b-2 border-white/10 text-[10px] font-black uppercase tracking-tighter text-gray-600">
-                                2. Profile</div>
-                            <div
-                                class="flex-1 py-4 text-center border-b-2 border-white/10 text-[10px] font-black uppercase tracking-tighter text-gray-600">
-                                3. Commitment</div>
-                        </div>
-
+                    <div class="rounded-sm pt-2 overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.6)] relative group bg-dark/80 border border-gold/20">
                         <div class="p-8 md:p-12">
-                            <form id="consultationForm" class="space-y-12">
-
-                                <!-- Part 1: Identity -->
-                                <div class="space-y-10">
-                                    <div class="grid md:grid-cols-2 gap-10">
+                            <form id="consultationForm" class="space-y-10">
+                                <!-- Step 1: Personal Details -->
+                                <div class="space-y-8">
+                                    <h3 class="text-gold font-bold text-sm uppercase tracking-wider border-b border-gold/30 pb-2">Personal Information</h3>
+                                    <div class="grid md:grid-cols-2 gap-8">
                                         <div class="relative group">
-                                            <input type="text" required
-                                                class="peer w-full bg-transparent border-b-2 border-white/10 py-3 outline-none focus:border-gold transition-all text-sm font-medium text-white placeholder-transparent">
-                                            <label
-                                                class="absolute left-0 top-0 text-gray-500 text-xs font-bold uppercase tracking-widest transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-sm peer-focus:-top-6 peer-focus:text-gold peer-focus:text-[10px]">Full
-                                                Name</label>
+                                            <input type="text" id="fullName" required class="peer w-full bg-transparent border-b-2 border-white/20 py-3 outline-none focus:border-gold transition-all text-sm font-medium text-white placeholder-transparent">
+                                            <label class="absolute left-0 top-0 text-gray-500 text-xs font-bold uppercase tracking-widest transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-sm peer-focus:-top-6 peer-focus:text-gold peer-focus:text-[10px]">Full Name *</label>
                                         </div>
                                         <div class="relative group">
-                                            <input type="tel" required
-                                                class="peer w-full bg-transparent border-b-2 border-white/10 py-3 outline-none focus:border-gold transition-all text-sm font-medium text-white placeholder-transparent">
-                                            <label
-                                                class="absolute left-0 top-0 text-gray-500 text-xs font-bold uppercase tracking-widest transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-sm peer-focus:-top-6 peer-focus:text-gold peer-focus:text-[10px]">Whatsapp
-                                                Number</label>
+                                            <input type="tel" id="whatsapp" required class="peer w-full bg-transparent border-b-2 border-white/20 py-3 outline-none focus:border-gold transition-all text-sm font-medium text-white placeholder-transparent">
+                                            <label class="absolute left-0 top-0 text-gray-500 text-xs font-bold uppercase tracking-widest transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-sm peer-focus:-top-6 peer-focus:text-gold peer-focus:text-[10px]">WhatsApp Number *</label>
                                         </div>
                                     </div>
-                                    <div class="grid md:grid-cols-2 gap-10">
+                                    <div class="grid md:grid-cols-2 gap-8">
                                         <div class="relative group">
-                                            <input type="text" required
-                                                class="peer w-full bg-transparent border-b-2 border-white/10 py-3 outline-none focus:border-gold transition-all text-sm font-medium text-white placeholder-transparent">
-                                            <label
-                                                class="absolute left-0 top-0 text-gray-500 text-xs font-bold uppercase tracking-widest transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-sm peer-focus:-top-6 peer-focus:text-gold peer-focus:text-[10px]">City
-                                                / State</label>
+                                            <input type="text" id="city" required class="peer w-full bg-transparent border-b-2 border-white/20 py-3 outline-none focus:border-gold transition-all text-sm font-medium text-white placeholder-transparent">
+                                            <label class="absolute left-0 top-0 text-gray-500 text-xs font-bold uppercase tracking-widest transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-sm peer-focus:-top-6 peer-focus:text-gold peer-focus:text-[10px]">City / State *</label>
                                         </div>
                                         <div class="relative group">
-                                            <input type="number" required
-                                                class="peer w-full bg-transparent border-b-2 border-white/10 py-3 outline-none focus:border-gold transition-all text-sm font-medium text-white placeholder-transparent">
-                                            <label
-                                                class="absolute left-0 top-0 text-gray-500 text-xs font-bold uppercase tracking-widest transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-sm peer-focus:-top-6 peer-focus:text-gold peer-focus:text-[10px]">Age</label>
+                                            <input type="number" id="age" required class="peer w-full bg-transparent border-b-2 border-white/20 py-3 outline-none focus:border-gold transition-all text-sm font-medium text-white placeholder-transparent">
+                                            <label class="absolute left-0 top-0 text-gray-500 text-xs font-bold uppercase tracking-widest transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-sm peer-focus:-top-6 peer-focus:text-gold peer-focus:text-[10px]">Age *</label>
                                         </div>
                                     </div>
                                 </div>
 
-                                <!-- Part 2: Situation (Interest Factor: Custom Select Chips) -->
-                                <div class="space-y-10">
-                                    <div class="space-y-6">
-                                        <label
-                                            class="text-[10px] font-black uppercase tracking-[0.2em] text-gold/60">Trading
-                                            Experience</label>
-                                        <div class="grid grid-cols-2 gap-4">
-                                            <label class="experience-chip">
-                                                <input type="radio" name="exp" class="hidden">
-                                                <div class="chip-bubble">Zero Experience</div>
-                                            </label>
-                                            <label class="experience-chip">
-                                                <input type="radio" name="exp" class="hidden">
-                                                <div class="chip-bubble">Less than 1 Year</div>
-                                            </label>
-                                            <label class="experience-chip">
-                                                <input type="radio" name="exp" class="hidden">
-                                                <div class="chip-bubble">1-3 Years</div>
-                                            </label>
-                                            <label class="experience-chip">
-                                                <input type="radio" name="exp" class="hidden">
-                                                <div class="chip-bubble">Pro / Full-time</div>
-                                            </label>
+                                <!-- Step 2: Trading Experience -->
+                                <div class="space-y-8">
+                                    <h3 class="text-gold font-bold text-sm uppercase tracking-wider border-b border-gold/30 pb-2">Trading Background</h3>
+                                    <div class="space-y-4">
+                                        <label class="text-[10px] font-black uppercase tracking-[0.2em] text-gold/60">Trading Experience *</label>
+                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                                            <label class="experience-chip cursor-pointer"><input type="radio" name="exp" value="Zero Experience" class="hidden"><div class="chip-bubble">Zero Experience</div></label>
+                                            <label class="experience-chip cursor-pointer"><input type="radio" name="exp" value="Less than 1 Year" class="hidden"><div class="chip-bubble">Less than 1 Year</div></label>
+                                            <label class="experience-chip cursor-pointer"><input type="radio" name="exp" value="1-3 Years" class="hidden"><div class="chip-bubble">1-3 Years</div></label>
+                                            <label class="experience-chip cursor-pointer"><input type="radio" name="exp" value="Pro / Full-time" class="hidden"><div class="chip-bubble">Pro / Full-time</div></label>
                                         </div>
                                     </div>
-
-                                    <div class="space-y-6">
-                                        <label
-                                            class="text-[10px] font-black uppercase tracking-[0.2em] text-gold/60 leading-relaxed">Current
-                                            Biggest Struggle</label>
-                                        <div class="space-y-4">
-                                            <label class="problem-item">
-                                                <input type="checkbox" class="hidden">
-                                                <div class="problem-box">
-                                                    <span class="text">Overtrading / Emotional Trades</span>
-                                                </div>
-                                            </label>
-                                            <label class="problem-item">
-                                                <input type="checkbox" class="hidden">
-                                                <div class="problem-box">
-                                                    <span class="text">No Clear System / Strategy</span>
-                                                </div>
-                                            </label>
-                                            <label class="problem-item">
-                                                <input type="checkbox" class="hidden">
-                                                <div class="problem-box">
-                                                    <span class="text">Following Signals (Blind Trading)</span>
-                                                </div>
-                                            </label>
+                                    <div class="space-y-4">
+                                        <label class="text-[10px] font-black uppercase tracking-[0.2em] text-gold/60">Current Biggest Struggle (Select all that apply) *</label>
+                                        <div class="space-y-3">
+                                            <label class="problem-item flex items-center cursor-pointer"><input type="checkbox" value="Overtrading / Emotional Trades" class="hidden mr-3"><div class="problem-box w-full">Overtrading / Emotional Trades</div></label>
+                                            <label class="problem-item flex items-center cursor-pointer"><input type="checkbox" value="No Clear System / Strategy" class="hidden mr-3"><div class="problem-box w-full">No Clear System / Strategy</div></label>
+                                            <label class="problem-item flex items-center cursor-pointer"><input type="checkbox" value="Following Signals (Blind Trading)" class="hidden mr-3"><div class="problem-box w-full">Following Signals (Blind Trading)</div></label>
                                         </div>
                                     </div>
                                 </div>
 
-                                <!-- Part 3: Commitment -->
-                                <div class="space-y-10">
-                                    <div class="space-y-6">
-                                        <label
-                                            class="text-[10px] font-black uppercase tracking-[0.2em] text-gold/60">Ready
-                                            to invest in learning?</label>
-                                        <div class="flex space-x-4">
-                                            <label class="flex-1 invest-chip">
-                                                <input type="radio" name="invest" class="hidden">
-                                                <div class="chip-bubble">Yes</div>
-                                            </label>
-                                            <label class="flex-1 invest-chip">
-                                                <input type="radio" name="invest" class="hidden">
-                                                <div class="chip-bubble">No</div>
-                                            </label>
-                                            <label class="flex-1 invest-chip">
-                                                <input type="radio" name="invest" class="hidden">
-                                                <div class="chip-bubble">Maybe</div>
-                                            </label>
+                                <!-- Step 3: Commitment & Availability -->
+                                <div class="space-y-8">
+                                    <h3 class="text-gold font-bold text-sm uppercase tracking-wider border-b border-gold/30 pb-2">Commitment & Schedule</h3>
+                                    <div class="space-y-4">
+                                        <label class="text-[10px] font-black uppercase tracking-[0.2em] text-gold/60">Ready to invest in learning? *</label>
+                                        <div class="flex flex-wrap gap-4">
+                                            <label class="invest-chip cursor-pointer flex-1"><input type="radio" name="invest" value="Yes" class="hidden"><div class="chip-bubble">Yes</div></label>
+                                            <label class="invest-chip cursor-pointer flex-1"><input type="radio" name="invest" value="No" class="hidden"><div class="chip-bubble">No</div></label>
+                                            <label class="invest-chip cursor-pointer flex-1"><input type="radio" name="invest" value="Maybe" class="hidden"><div class="chip-bubble">Maybe</div></label>
                                         </div>
                                     </div>
-
-                                    <div class="space-y-6">
-                                        <label
-                                            class="text-[10px] font-black uppercase tracking-[0.2em] text-gold/60">Why
-                                            now?</label>
-                                        <textarea placeholder="Tell us why you want to learn seriously now..."
-                                            class="w-full bg-white/5 border border-white/10 rounded-sm p-5 text-sm outline-none focus:border-gold focus:bg-white/10 transition-all h-32 text-white"></textarea>
+                                    <div class="space-y-4">
+                                        <label class="text-[10px] font-black uppercase tracking-[0.2em] text-gold/60">Why now? *</label>
+                                        <textarea id="whyNow" rows="3" class="w-full bg-white/5 border border-white/10 rounded-sm p-4 text-sm outline-none focus:border-gold focus:bg-white/10 transition-all text-white placeholder-gray-500" placeholder="Tell us why you want to learn seriously now..."></textarea>
                                     </div>
-
-                                    <div class="space-y-6">
-                                        <label
-                                            class="text-[10px] font-black uppercase tracking-[0.2em] text-gold/60">Available
-                                            Call Time</label>
-                                        <div class="grid grid-cols-3 gap-4">
-                                            <label class="time-chip">
-                                                <input type="radio" name="time" class="hidden">
-                                                <div class="chip-bubble !py-3">Morning</div>
-                                            </label>
-                                            <label class="time-chip">
-                                                <input type="radio" name="time" class="hidden">
-                                                <div class="chip-bubble !py-3">Afternoon</div>
-                                            </label>
-                                            <label class="time-chip">
-                                                <input type="radio" name="time" class="hidden">
-                                                <div class="chip-bubble !py-3">Evening</div>
-                                            </label>
+                                    <div class="space-y-4">
+                                        <label class="text-[10px] font-black uppercase tracking-[0.2em] text-gold/60">Preferred Call Time *</label>
+                                        <div class="grid grid-cols-3 gap-3">
+                                            <label class="time-chip cursor-pointer"><input type="radio" name="time" value="Morning" class="hidden"><div class="chip-bubble !py-3">Morning</div></label>
+                                            <label class="time-chip cursor-pointer"><input type="radio" name="time" value="Afternoon" class="hidden"><div class="chip-bubble !py-3">Afternoon</div></label>
+                                            <label class="time-chip cursor-pointer"><input type="radio" name="time" value="Evening" class="hidden"><div class="chip-bubble !py-3">Evening</div></label>
                                         </div>
                                     </div>
                                 </div>
 
-                                <button type="submit"
-                                    class="glow-btn w-full py-6 text-xl tracking-[0.3em] font-black uppercase">
-                                    SUBMIT APPLICATION
-                                </button>
+                                <!-- Submit Button Fully Functional -->
+                                <button type="submit" class="glow-btn w-full py-5 text-lg tracking-[0.2em] font-black uppercase bg-gold text-navy hover:bg-[#c9a334] transition-all">👉 SUBMIT APPLICATION</button>
+                                <p class="text-[10px] text-center text-gray-500 mt-4">*All fields are required. Your information is secure.</p>
                             </form>
                         </div>
                     </div>
@@ -554,316 +373,109 @@
         </div>
     </section>
 
-    <!-- Custom Form Styles -->
-    <style>
-        /* Hidden inputs */
-        .experience-chip input:checked+.chip-bubble,
-        .invest-chip input:checked+.chip-bubble,
-        .time-chip input:checked+.chip-bubble,
-        .problem-item input:checked+.problem-box {
-            @apply text-white font-bold opacity-100;
-        }
-
-        .chip-bubble, .problem-box {
-            @apply text-base font-normal tracking-wide text-gray-300 opacity-80 cursor-pointer transition-all duration-300 hover:text-white hover:opacity-100 flex items-center justify-start h-full;
-        }
-    </style>
-
     <!-- What Happens On The Call Section -->
     <section class="bg-dark/20 border-t border-white/5" id="process">
         <div class="section-container">
             <div class="text-center mb-16 reveal">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4 font-heading text-white uppercase tracking-tight">What Happens On The Call?</h2>
                 <div class="w-16 h-1 bg-gold mx-auto mb-6"></div>
-                <p class="text-gray-300 font-medium text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-                    This is not a sales call.<br />
-                    This is a <span class="text-gold font-bold">clarity session</span> designed to fix your trading direction.
-                </p>
+                <p class="text-gray-300 font-medium text-base md:text-lg max-w-2xl mx-auto leading-relaxed">This is not a sales call.<br />This is a <span class="text-gold font-bold">clarity session</span> designed to fix your trading direction.</p>
             </div>
-
             <div class="grid md:grid-cols-3 gap-8 mb-12 relative max-w-5xl mx-auto">
-                <!-- Connecting Line (Desktop) -->
-                <div class="hidden md:block absolute top-[45px] left-[15%] right-[15%] h-[2px] bg-white/5 z-0"></div>
-
-                <!-- Step 1 -->
                 <div class="reveal relative z-10 bg-dark/80 backdrop-blur-sm border border-white/10 p-8 rounded-2xl shadow-xl hover:-translate-y-2 hover:border-gold/30 transition-all duration-300">
-                    <div class="w-20 h-20 rounded-full bg-navy border-[3px] border-gold flex items-center justify-center mx-auto mb-6 shadow-[0_0_25px_rgba(212,175,55,0.2)] text-gold flex-col">
-                        <span class="text-[10px] uppercase font-black tracking-widest opacity-80 mb-0.5">Step</span>
-                        <span class="font-black text-2xl font-heading leading-none">1</span>
-                    </div>
+                    <div class="w-20 h-20 rounded-full bg-navy border-[3px] border-gold flex items-center justify-center mx-auto mb-6 shadow-[0_0_25px_rgba(212,175,55,0.2)] text-gold flex-col"><span class="text-[10px] uppercase font-black tracking-widest opacity-80 mb-0.5">Step</span><span class="font-black text-2xl font-heading leading-none">1</span></div>
                     <h3 class="text-lg font-bold text-white mb-3 text-center uppercase tracking-wider">Identify Your Confusion</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed text-center">
-                        We break down your current trading approach to identify where you're going wrong — from random entries to lack of structure.
-                    </p>
+                    <p class="text-gray-400 text-sm leading-relaxed text-center">We break down your current trading approach to identify where you're going wrong — from random entries to lack of structure.</p>
                 </div>
-
-                <!-- Step 2 -->
                 <div class="reveal relative z-10 bg-dark/80 backdrop-blur-sm border border-white/10 p-8 rounded-2xl shadow-xl hover:-translate-y-2 hover:border-gold/30 transition-all duration-300 delay-[100ms]">
-                    <div class="w-20 h-20 rounded-full bg-navy border-[3px] border-gold flex items-center justify-center mx-auto mb-6 shadow-[0_0_25px_rgba(212,175,55,0.2)] text-gold flex-col">
-                        <span class="text-[10px] uppercase font-black tracking-widest opacity-80 mb-0.5">Step</span>
-                        <span class="font-black text-2xl font-heading leading-none">2</span>
-                    </div>
+                    <div class="w-20 h-20 rounded-full bg-navy border-[3px] border-gold flex items-center justify-center mx-auto mb-6 shadow-[0_0_25px_rgba(212,175,55,0.2)] text-gold flex-col"><span class="text-[10px] uppercase font-black tracking-widest opacity-80 mb-0.5">Step</span><span class="font-black text-2xl font-heading leading-none">2</span></div>
                     <h3 class="text-lg font-bold text-white mb-3 text-center uppercase tracking-wider">Build Your Clarity</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed text-center">
-                        You’ll understand what is missing in your trading and how to approach the market with a clear, structured system.
-                    </p>
+                    <p class="text-gray-400 text-sm leading-relaxed text-center">You’ll understand what is missing in your trading and how to approach the market with a clear, structured system.</p>
                 </div>
-
-                <!-- Step 3 -->
                 <div class="reveal relative z-10 bg-dark/80 backdrop-blur-sm border border-white/10 p-8 rounded-2xl shadow-xl hover:-translate-y-2 hover:border-gold/30 transition-all duration-300 delay-[200ms]">
-                    <div class="w-20 h-20 rounded-full bg-navy border-[3px] border-gold flex items-center justify-center mx-auto mb-6 shadow-[0_0_25px_rgba(212,175,55,0.2)] text-gold flex-col">
-                        <span class="text-[10px] uppercase font-black tracking-widest opacity-80 mb-0.5">Step</span>
-                        <span class="font-black text-2xl font-heading leading-none">3</span>
-                    </div>
+                    <div class="w-20 h-20 rounded-full bg-navy border-[3px] border-gold flex items-center justify-center mx-auto mb-6 shadow-[0_0_25px_rgba(212,175,55,0.2)] text-gold flex-col"><span class="text-[10px] uppercase font-black tracking-widest opacity-80 mb-0.5">Step</span><span class="font-black text-2xl font-heading leading-none">3</span></div>
                     <h3 class="text-lg font-bold text-white mb-3 text-center uppercase tracking-wider">Fix Your Direction</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed text-center">
-                        You’ll walk away with a clear path to follow — so you stop guessing and start trading with confidence and discipline.
-                    </p>
+                    <p class="text-gray-400 text-sm leading-relaxed text-center">You’ll walk away with a clear path to follow — so you stop guessing and start trading with confidence and discipline.</p>
                 </div>
             </div>
-
-            <!-- Strong Closing Line -->
             <div class="reveal bg-gradient-to-r from-dark/0 via-gold/5 to-dark/0 py-6 px-4 md:px-12 text-center max-w-4xl mx-auto border-y border-gold/10">
-                <p class="text-[17px] md:text-xl font-medium text-white italic tracking-wide">
-                    <span class="text-2xl mr-2">👉</span> From confusion to clarity — and from clarity to the <span class="text-gold font-bold not-italic">RIGHT DIRECTION</span>.
-                </p>
+                <p class="text-[17px] md:text-xl font-medium text-white italic tracking-wide"><span class="text-2xl mr-2">👉</span> From confusion to clarity — and from clarity to the <span class="text-gold font-bold not-italic">RIGHT DIRECTION</span>.</p>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section (Accordion Style) -->
+    <!-- FAQ Section -->
     <section class="section-container max-w-4xl" id="faq">
-        <div class="text-center mb-16 reveal">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 font-heading text-white uppercase">Frequently Asked Questions
-            </h2>
-            <div class="w-20 h-1 bg-gold mx-auto"></div>
-        </div>
+        <div class="text-center mb-16 reveal"><h2 class="text-3xl md:text-4xl font-bold mb-4 font-heading text-white uppercase">Frequently Asked Questions</h2><div class="w-20 h-1 bg-gold mx-auto"></div></div>
         <div class="max-w-3xl mx-auto space-y-4">
-            <!-- FAQ Item 1 -->
-            <div class="faq-item group">
-                <button
-                    class="faq-toggle w-full flex justify-between items-center p-6 text-left bg-dark/50 border border-white/5 rounded-xl hover:border-gold/30 transition-all duration-300">
-                    <span class="text-lg font-bold text-white group-hover:text-gold transition-colors">1. Is this
-                        consultation really free?</span>
-                    <span class="faq-icon text-gold text-2xl transition-transform duration-300">+</span>
-                </button>
-                <div
-                    class="faq-content overflow-hidden max-h-0 transition-all duration-500 ease-in-out bg-white/[0.02] rounded-b-xl">
-                    <div class="p-6 text-gray-400 leading-relaxed border-x border-b border-white/5">
-                        Yes. The PrimeVerse Trading Consultation is completely free. The purpose of this call is to
-                        understand your trading background, identify the challenges you are facing, and guide you on the
-                        correct path to improve your trading skills.
-                    </div>
-                </div>
-            </div>
-
-            <!-- FAQ Item 2 -->
-            <div class="faq-item group">
-                <button
-                    class="faq-toggle w-full flex justify-between items-center p-6 text-left bg-dark/50 border border-white/5 rounded-xl hover:border-gold/30 transition-all duration-300">
-                    <span class="text-lg font-bold text-white group-hover:text-gold transition-colors">2. Will you try
-                        to sell me something?</span>
-                    <span class="faq-icon text-gold text-2xl transition-transform duration-300">+</span>
-                </button>
-                <div
-                    class="faq-content overflow-hidden max-h-0 transition-all duration-500 ease-in-out bg-white/[0.02] rounded-b-xl">
-                    <div class="p-6 text-gray-400 leading-relaxed border-x border-b border-white/5">
-                        No pressure sales. This consultation focuses on understanding your trading problems and
-                        providing guidance. If the PrimeVerse Mastery Program is the right solution for you, we will
-                        explain how it works and you can decide whether you want to join.
-                    </div>
-                </div>
-            </div>
-
-            <!-- FAQ Item 3 -->
-            <div class="faq-item group">
-                <button
-                    class="faq-toggle w-full flex justify-between items-center p-6 text-left bg-dark/50 border border-white/5 rounded-xl hover:border-gold/30 transition-all duration-300">
-                    <span class="text-lg font-bold text-white group-hover:text-gold transition-colors">3. Who will I be
-                        speaking with?</span>
-                    <span class="faq-icon text-gold text-2xl transition-transform duration-300">+</span>
-                </button>
-                <div
-                    class="faq-content overflow-hidden max-h-0 transition-all duration-500 ease-in-out bg-white/[0.02] rounded-b-xl">
-                    <div class="p-6 text-gray-400 leading-relaxed border-x border-b border-white/5">
-                        You will be speaking directly with Ganesh Kumar — Founder of PrimeVerse. Ganesh is a trader and
-                        mentor focused on helping beginner traders develop structured trading systems, proper risk
-                        management, and disciplined trading habits.
-                    </div>
-                </div>
-            </div>
-
-            <!-- FAQ Item 4 -->
-            <div class="faq-item group">
-                <button
-                    class="faq-toggle w-full flex justify-between items-center p-6 text-left bg-dark/50 border border-white/5 rounded-xl hover:border-gold/30 transition-all duration-300">
-                    <span class="text-lg font-bold text-white group-hover:text-gold transition-colors">4. How will the
-                        consultation happen?</span>
-                    <span class="faq-icon text-gold text-2xl transition-transform duration-300">+</span>
-                </button>
-                <div
-                    class="faq-content overflow-hidden max-h-0 transition-all duration-500 ease-in-out bg-white/[0.02] rounded-b-xl">
-                    <div class="p-6 text-gray-400 leading-relaxed border-x border-b border-white/5">
-                        The consultation will take place through a Zoom meeting. Once your application is reviewed, our
-                        team will contact you and schedule a suitable time for the call.
-                    </div>
-                </div>
-            </div>
-
-            <!-- FAQ Item 5 -->
-            <div class="faq-item group">
-                <button
-                    class="faq-toggle w-full flex justify-between items-center p-6 text-left bg-dark/50 border border-white/5 rounded-xl hover:border-gold/30 transition-all duration-300">
-                    <span class="text-lg font-bold text-white group-hover:text-gold transition-colors">5. How should I
-                        prepare for the consultation?</span>
-                    <span class="faq-icon text-gold text-2xl transition-transform duration-300">+</span>
-                </button>
-                <div
-                    class="faq-content overflow-hidden max-h-0 transition-all duration-500 ease-in-out bg-white/[0.02] rounded-b-xl">
-                    <div class="p-6 text-gray-400 leading-relaxed border-x border-b border-white/5 space-y-3">
-                        <p>Please be ready to discuss:</p>
-                        <ul class="list-disc pl-5 space-y-1">
-                            <li>Your trading experience</li>
-                            <li>The mistakes you are currently facing</li>
-                            <li>Your goals with trading</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- FAQ Item 6 -->
-            <div class="faq-item group">
-                <button
-                    class="faq-toggle w-full flex justify-between items-center p-6 text-left bg-dark/50 border border-white/5 rounded-xl hover:border-gold/30 transition-all duration-300">
-                    <span class="text-lg font-bold text-white group-hover:text-gold transition-colors">6. Who is this
-                        consultation for?</span>
-                    <span class="faq-icon text-gold text-2xl transition-transform duration-300">+</span>
-                </button>
-                <div
-                    class="faq-content overflow-hidden max-h-0 transition-all duration-500 ease-in-out bg-white/[0.02] rounded-b-xl">
-                    <div class="p-6 text-gray-400 leading-relaxed border-x border-b border-white/5 space-y-4">
-                        <ul class="list-disc pl-5 space-y-1">
-                            <li>Beginner traders</li>
-                            <li>Traders struggling with consistency</li>
-                            <li>People who want to learn trading properly</li>
-                        </ul>
-                        <p class="text-gold font-semibold pt-2 border-t border-white/5 italic">It is not for people
-                            looking for trading signals or quick profits.</p>
-                    </div>
-                </div>
-            </div>
+            <div class="faq-item group"><button class="faq-toggle w-full flex justify-between items-center p-6 text-left bg-dark/50 border border-white/5 rounded-xl hover:border-gold/30 transition-all duration-300"><span class="text-lg font-bold text-white group-hover:text-gold transition-colors">1. Is this consultation really free?</span><span class="faq-icon text-gold text-2xl transition-transform duration-300">+</span></button><div class="faq-content overflow-hidden max-h-0 transition-all duration-500 ease-in-out bg-white/[0.02] rounded-b-xl"><div class="p-6 text-gray-400 leading-relaxed border-x border-b border-white/5">Yes. The PrimeVerse Trading Consultation is completely free. The purpose of this call is to understand your trading background, identify the challenges you are facing, and guide you on the correct path to improve your trading skills.</div></div></div>
+            <div class="faq-item group"><button class="faq-toggle w-full flex justify-between items-center p-6 text-left bg-dark/50 border border-white/5 rounded-xl hover:border-gold/30 transition-all duration-300"><span class="text-lg font-bold text-white group-hover:text-gold transition-colors">2. Will you try to sell me something?</span><span class="faq-icon text-gold text-2xl transition-transform duration-300">+</span></button><div class="faq-content overflow-hidden max-h-0 transition-all duration-500 ease-in-out bg-white/[0.02] rounded-b-xl"><div class="p-6 text-gray-400 leading-relaxed border-x border-b border-white/5">No pressure sales. This consultation focuses on understanding your trading problems and providing guidance. If the PrimeVerse Mastery Program is the right solution for you, we will explain how it works and you can decide whether you want to join.</div></div></div>
+            <div class="faq-item group"><button class="faq-toggle w-full flex justify-between items-center p-6 text-left bg-dark/50 border border-white/5 rounded-xl hover:border-gold/30 transition-all duration-300"><span class="text-lg font-bold text-white group-hover:text-gold transition-colors">3. Who will I be speaking with?</span><span class="faq-icon text-gold text-2xl transition-transform duration-300">+</span></button><div class="faq-content overflow-hidden max-h-0 transition-all duration-500 ease-in-out bg-white/[0.02] rounded-b-xl"><div class="p-6 text-gray-400 leading-relaxed border-x border-b border-white/5">You will be speaking directly with Ganesh Kumar — Founder of PrimeVerse. Ganesh is a trader and mentor focused on helping beginner traders develop structured trading systems, proper risk management, and disciplined trading habits.</div></div></div>
+            <div class="faq-item group"><button class="faq-toggle w-full flex justify-between items-center p-6 text-left bg-dark/50 border border-white/5 rounded-xl hover:border-gold/30 transition-all duration-300"><span class="text-lg font-bold text-white group-hover:text-gold transition-colors">4. How will the consultation happen?</span><span class="faq-icon text-gold text-2xl transition-transform duration-300">+</span></button><div class="faq-content overflow-hidden max-h-0 transition-all duration-500 ease-in-out bg-white/[0.02] rounded-b-xl"><div class="p-6 text-gray-400 leading-relaxed border-x border-b border-white/5">The consultation will take place through a Zoom meeting. Once your application is reviewed, our team will contact you and schedule a suitable time for the call.</div></div></div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="border-t border-white/5 bg-navy py-16 text-center">
-        <div class="max-w-4xl mx-auto px-6">
-            
-            <h3 class="text-2xl font-black tracking-widest font-heading text-gold mb-6 uppercase">
-                PRIMEVERSE
-            </h3>
-            
-            <div class="flex flex-wrap justify-center items-center gap-3 md:gap-4 mb-8 text-xs md:text-sm text-gray-400 font-bold uppercase tracking-wider">
-                <a href="privacy.html" class="hover:text-gold transition-colors">Privacy Policy</a>
-                <span class="text-gray-600">•</span>
-                <a href="terms.html" class="hover:text-gold transition-colors">Terms of Service</a>
-                <span class="text-gray-600">•</span>
-                <a href="mailto:mr.ganeshkumar999@gmail.com" class="hover:text-gold transition-colors">Contact</a>
-            </div>
+    <footer class="border-t border-white/5 bg-navy py-16 text-center"><div class="max-w-4xl mx-auto px-6"><h3 class="text-2xl font-black tracking-widest font-heading text-gold mb-6 uppercase">PRIMEVERSE</h3><div class="flex flex-wrap justify-center items-center gap-3 md:gap-4 mb-8 text-xs md:text-sm text-gray-400 font-bold uppercase tracking-wider"><a href="privacy.html" class="hover:text-gold transition-colors">Privacy Policy</a><span class="text-gray-600">•</span><a href="terms.html" class="hover:text-gold transition-colors">Terms of Service</a><span class="text-gray-600">•</span><a href="mailto:mr.ganeshkumar999@gmail.com" class="hover:text-gold transition-colors">Contact</a></div><p class="text-xs text-gray-500 mb-8 font-medium">© 2026 PrimeVerse. All rights reserved.</p><div class="text-[10px] md:text-xs text-gray-500/70 leading-relaxed mx-auto font-medium"><p>Trading is risky and not suitable for everyone.</p><p>This content is for educational purposes only — results depend on your discipline and execution.</p></div></div></footer>
 
-            <p class="text-xs text-gray-500 mb-8 font-medium">
-                © 2026 PrimeVerse. All rights reserved.
-            </p>
-
-            <div class="text-[10px] md:text-xs text-gray-500/70 leading-relaxed mx-auto font-medium">
-                <p>Trading is risky and not suitable for everyone.</p>
-                <p>This content is for educational purposes only — results depend on your discipline and execution.</p>
-            </div>
-
-        </div>
-    </footer>
-
-    <!-- Scripts -->
     <script>
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
             });
         });
 
-        // Form Submit
-        const form = document.getElementById('applyForm');
+        // Form Submit fully functional with validation
+        const form = document.getElementById('consultationForm');
         if (form) {
             form.addEventListener('submit', (e) => {
                 e.preventDefault();
-                const btn = form.querySelector('button');
+                // Gather all required fields
+                const name = document.getElementById('fullName')?.value.trim();
+                const whatsapp = document.getElementById('whatsapp')?.value.trim();
+                const city = document.getElementById('city')?.value.trim();
+                const age = document.getElementById('age')?.value.trim();
+                const expSelected = document.querySelector('input[name="exp"]:checked');
+                const struggles = document.querySelectorAll('input[name="struggle"]:checked') || document.querySelectorAll('.problem-item input:checked');
+                const investSelected = document.querySelector('input[name="invest"]:checked');
+                const whyNow = document.getElementById('whyNow')?.value.trim();
+                const timeSelected = document.querySelector('input[name="time"]:checked');
+                
+                if (!name || !whatsapp || !city || !age) { alert('Please fill in all personal details.'); return; }
+                if (!expSelected) { alert('Please select your trading experience.'); return; }
+                if (struggles.length === 0) { alert('Please select at least one trading struggle.'); return; }
+                if (!investSelected) { alert('Please indicate if you are ready to invest in learning.'); return; }
+                if (!whyNow) { alert('Please tell us why you want to learn now.'); return; }
+                if (!timeSelected) { alert('Please select a preferred call time.'); return; }
+                
+                const btn = form.querySelector('button[type="submit"]');
+                const originalText = btn.innerText;
                 btn.innerText = 'PROCESSING...';
                 setTimeout(() => {
-                    alert('Application received! Ganesh will contact you shortly to confirm your session.');
-                    btn.innerText = 'APPLICATION SENT';
+                    alert('✅ Application successfully submitted!\n\nGanesh Kumar will contact you within 24 hours via WhatsApp to schedule your FREE Clarity Session.');
+                    btn.innerText = '✅ APPLICATION SENT';
                     form.reset();
-                }, 1500);
+                    setTimeout(() => { btn.innerText = originalText; }, 2000);
+                }, 800);
             });
         }
 
-        // Scroll Reveal
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 150;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                }
-            }
-        }
-        window.addEventListener("scroll", reveal);
-        reveal(); // Initial check
-
-        // Scrolling Progress Bar
-        window.addEventListener('scroll', () => {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById("progress-bar").style.width = scrolled + "%";
+        // Custom UI for radio/checkbox chips
+        document.querySelectorAll('.experience-chip input, .invest-chip input, .time-chip input').forEach(radio => {
+            radio.addEventListener('change', function() { if(this.checked) this.parentElement.classList.add('active'); });
+        });
+        document.querySelectorAll('.problem-item input').forEach(cb => {
+            cb.addEventListener('change', function() { if(this.checked) this.parentElement.classList.add('active'); else this.parentElement.classList.remove('active'); });
         });
 
-        // Mouse Spotlight Effect
-        const spotlight = document.getElementById('spotlight');
-        window.addEventListener('mousemove', (e) => {
-            spotlight.style.left = e.clientX + 'px';
-            spotlight.style.top = e.clientY + 'px';
-        });
-
-        // FAQ Accordion Logic
-        document.querySelectorAll('.faq-toggle').forEach(button => {
-            button.addEventListener('click', () => {
-                const faqItem = button.parentElement;
-                const content = faqItem.querySelector('.faq-content');
-                const icon = faqItem.querySelector('.faq-icon');
-
-                // Toggle active state
-                const isOpen = content.style.maxHeight !== '0px' && content.style.maxHeight !== '';
-
-                // Close all other items
-                document.querySelectorAll('.faq-content').forEach(c => c.style.maxHeight = '0px');
-                document.querySelectorAll('.faq-icon').forEach(i => i.style.transform = 'rotate(0deg)');
-
-                if (!isOpen) {
-                    content.style.maxHeight = content.scrollHeight + 'px';
-                    icon.style.transform = 'rotate(45deg)';
-                } else {
-                    content.style.maxHeight = '0px';
-                    icon.style.transform = 'rotate(0deg)';
-                }
-            });
-        });
+        // Scroll reveal, progress bar, spotlight
+        function reveal() { var reveals = document.querySelectorAll(".reveal"); for (var i = 0; i < reveals.length; i++) { var windowHeight = window.innerHeight; var elementTop = reveals[i].getBoundingClientRect().top; var elementVisible = 150; if (elementTop < windowHeight - elementVisible) reveals[i].classList.add("active"); } }
+        window.addEventListener("scroll", reveal); reveal();
+        window.addEventListener('scroll', () => { const winScroll = document.body.scrollTop || document.documentElement.scrollTop; const height = document.documentElement.scrollHeight - document.documentElement.clientHeight; const scrolled = (winScroll / height) * 100; document.getElementById("progress-bar").style.width = scrolled + "%"; });
+        const spotlight = document.getElementById('spotlight'); window.addEventListener('mousemove', (e) => { spotlight.style.left = e.clientX + 'px'; spotlight.style.top = e.clientY + 'px'; });
+        document.querySelectorAll('.faq-toggle').forEach(button => { button.addEventListener('click', () => { const faqItem = button.parentElement; const content = faqItem.querySelector('.faq-content'); const icon = faqItem.querySelector('.faq-icon'); const isOpen = content.style.maxHeight !== '0px' && content.style.maxHeight !== ''; document.querySelectorAll('.faq-content').forEach(c => c.style.maxHeight = '0px'); document.querySelectorAll('.faq-icon').forEach(i => i.style.transform = 'rotate(0deg)'); if (!isOpen) { content.style.maxHeight = content.scrollHeight + 'px'; icon.style.transform = 'rotate(45deg)'; } else { content.style.maxHeight = '0px'; icon.style.transform = 'rotate(0deg)'; } }); });
     </script>
 </body>
 
